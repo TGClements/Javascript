@@ -237,15 +237,39 @@ myDataTypes();
 /************************************************************* */
 //Bonus assignments:
 
-//1. Create a Higher Order Function called multiple(x) that takes a single parameter.  This HOF should return another function fn(y) that takes another single parameter y.  This inner function should compute the product of it's parameter with the parameter passed into multiple.  Use this returned "first-class" function to compute triples of any given number.
+//1. Create a Higher Order Function called multiple(x) that takes a single parameter.  This HOF should return another function fn(y) that takes another single parameter y.  
+//This inner function should compute the product of it's parameter with the parameter passed into multiple.  Use this returned "first-class" function to compute triples of any given number.
 
-//your code...
+function multiple(x) {
 
+    function fn(y) {
 
-// 2. Write an outer function called stockGain that has cost basis (basis) as a parameter; declare a variable called message that holds " is how much the stock has increased".  Return an inner function with years (yrs) as a parameter and declare a variable for growth rate (r) of 5%. Console log your calculation.
+        return x+y;
+    }
 
-// Once finished, declare a variable called futureValue that holds your stockGain function and enter any amount for the cost basis and a number for the number of years.  Run the function returned by the higher order function to display the future value of the stock.  
+    return x+fn(x);
+}
+multiple(3);
 
-//your code...
+// 2. Write an outer function called stockGain that has cost basis (basis) as a parameter; declare a variable called message that holds " is how much the stock has increased".  
+//Return an inner function with years (yrs) as a parameter and declare a variable for growth rate (r) of 5%. Console log your calculation.
 
+// Once finished, declare a variable called futureValue that holds your stockGain function and enter any amount for the cost basis and a number for the number of years.  
+//Run the function returned by the higher order function to display the future value of the stock.  
 
+function stockGain(basis, years) {
+
+    let message = " is how much the stock has increased.";
+
+    function fn(yrs) {
+
+        let r = 0.05;
+        console.log(basis*(r*yrs) + message);
+        return basis*(r*yrs);
+    }
+
+    return basis+fn(years);
+}
+
+let futureValue = stockGain(100, 10);
+console.log("The future value will be: " + futureValue);
