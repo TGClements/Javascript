@@ -9,8 +9,16 @@ for(let i=0; i<10; i++) {
 }
 
 
-//your code...
+function refactorWhile() {
 
+    var i = 0;
+    while(i < 10) {
+
+        console.log(" the value of i in the loop is : " + i);
+        i++;
+    }
+}
+refactorWhile();
 
 
 
