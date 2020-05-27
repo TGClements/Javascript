@@ -11,7 +11,7 @@ for(let i=0; i<10; i++) {
 
 function refactorWhile() {
 
-    var i = 0;
+    let i = 0;
     while(i < 10) {
 
         console.log(" the value of i in the loop is : " + i);
@@ -27,7 +27,27 @@ refactorWhile();
 // multiply the sum of 30 added to two by 20.  Divide the product by 10 raised to the power of 2
 //use javascript to compute the value of the above statement. Each individual operation needs to be a function expression. run all the functions after defining them, and print the answer to the console.
 
-//your code...
+// ( ((30+2)*20) / (10^2) )
+
+function mult1(x,y) {
+    return x*y;
+}
+function add1(x,y) {
+    return x+y;
+}
+function divide1(x,y) {
+    return x/y;
+}
+function powerOf(x,y) {
+    return Math.pow(x,y);
+}
+function doMoreMath() {
+
+    let result = divide1( mult1(add1(30,2), 20), powerOf(10,2));
+    console.log("The result is: " + result);
+}
+doMoreMath();
+
 
 
 /************************************************************* */
@@ -47,6 +67,25 @@ refactorWhile();
 // undefined
 // ""
 
+function determineTruthyFalsy() {
+
+    const zero = 20;
+
+    // using ternary to not have to write 4x more the amount of code for if/else blocks
+    console.log( 20 ? "20 is truthy because it inherently has an int value." : "20 is falsy." );
+    console.log( 0 ? "0 is truthy." : "0 is falsy because it represents having no (or zero) int value." );
+    console.log( "zero" ? "\"zero\" is truthy because it inherently has a string value." : "\"zero\" is falsy." );
+    console.log( zero ? "zero is truthy because it represents the number 0, so it has an inherent value." : "zero is falsy." );
+    console.log( null ? "null is truthy." : "null is falsy because it does not contain value." );
+    console.log( "0" ? "\"0\" is truthy because it has a string value." : "\"0\" is falsy." );
+    console.log( !"" ? "!\"\" is truthy because it's the opposite of the null string \"\", which has inherently no value." : "!\"\" is falsy." );
+    console.log( {} ? "{} is truthy because any kind of object has an inherent value." : "{} is falsy." );
+    console.log( "() => {console.log(\"hello TEKcamp!\"); is truthy because all functions contain inherent value.");
+    console.log( 125 ? "125 is truthy because it has inherent int value." : "125 is falsy." );
+    console.log( undefined ? "undefined is truthy." : "undefined is falsy because it represents having no value." );
+    console.log( "" ? "\"\" is truthy." : "\"\" is falsy because empty strings contain no values." );
+}
+determineTruthyFalsy();
 
 
 
@@ -70,6 +109,34 @@ if(day === "monday") {
     console.log("It's a weekend!")
 }
 
+function refactorToSwitch() {
+
+    const day= "friday";
+
+    switch(day) {
+
+        case "monday":
+            console.log("we got a long week ahead of us...");
+            break;
+        case "tuesday":
+            console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+            break;
+        case "wednesday":
+            console.log("We are smack dab in the middle of the week");
+            break;
+        case "thursday":
+            console.log("Thursday night... the mood is right");
+            break;
+        case "friday":
+            console.log("TGIF.  Friday truly is the best day of the week!")
+            break;
+        default:
+            console.log("It's a weekend!");
+            break;
+    }
+}
+refactorToSwitch();
+
 
 
 /************************************************************* */
@@ -86,6 +153,17 @@ if (age > 13 && age < 19) console.log('teen'); else {
 if (age > 65) console.log("retired"); else {
     console.log("still working...");
 }
+
+function refactorTernary() {
+
+    const age = 10;
+
+    console.log( age > 21 ? "adult" : "minor" );
+    console.log( (age > 13) && (age < 19) ?  "teen" : "not a teenager");
+    console.log( age > 65 ? "retired" : "still working..." );
+}
+refactorTernary();
+
 
 
 /************************************************************* */
@@ -105,16 +183,34 @@ if (age > 65) console.log("retired"); else {
 
 //your code...
 
+function myselfAsAnObject() {
+
+    let myself = {
+        name: "Tyler Clements", 
+        age: "28", 
+        gender: "Male", 
+        hobbies: "Gaming, Growing hot peppers", 
+        profession: "Bootcamp Student",
+        education: "Bachelor's in Information Technology",
+        learn: function() {console.log(this.name);},
+        growPeppers: function() {console.log("My hobbies include: " + this.hobbies);}
+    };
+    myself.learn();
+    myself.growPeppers();
+}
+myselfAsAnObject();
+
+
 
 /************************************************************* */
-// Problem 6: Create an object literal that represents any object in the real world that you like.  Try to come up with a realistic set of properties and methods that would accurately describe that object.  In at least one of your methods, use the this keyword to refer back to one of the properties you defined on this object literal.  
+// Problem 7: Create an object literal that represents any object in the real world that you like.  Try to come up with a realistic set of properties and methods that would accurately describe that object.  In at least one of your methods, use the this keyword to refer back to one of the properties you defined on this object literal.  
 
 //your code...
 
 
 
 /************************************************************* */
-//Problem 7: create a function that outputs your 3 favorite data types, with a message explaining why you like that data type.
+//Problem 8: create a function that outputs your 3 favorite data types, with a message explaining why you like that data type.
 
 //your code...
 
