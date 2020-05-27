@@ -181,8 +181,6 @@ refactorTernary();
 -add another method on your object of any action you want to perform, using some property that exists on your object, making sure to utilize the 'this' keyword.
 */
 
-//your code...
-
 function myselfAsAnObject() {
 
     let myself = {
@@ -205,14 +203,34 @@ myselfAsAnObject();
 /************************************************************* */
 // Problem 7: Create an object literal that represents any object in the real world that you like.  Try to come up with a realistic set of properties and methods that would accurately describe that object.  In at least one of your methods, use the this keyword to refer back to one of the properties you defined on this object literal.  
 
-//your code...
+function pepperObject() {
+
+    let habanero = {
+        scientificName: "Capsicum Chinense",
+        color: "Orange",
+        heat: "Average 225,000 Scoville",
+        flavor: "Sweet, Fruity, Tropical",
+        grow: function() {console.log("Developing the following flavors: " + this.flavor);},
+        mature: function() {console.log("Developing heat of " + this.heat);}
+    };
+
+    habanero.grow();
+    habanero.mature();
+}
+pepperObject();
 
 
 
 /************************************************************* */
 //Problem 8: create a function that outputs your 3 favorite data types, with a message explaining why you like that data type.
 
-//your code...
+function myDataTypes() {
+
+    console.log("1. Booleans. 1's and 0's (true's and false's) are the heart of computing.");
+    console.log("2. Doubles. When you need to represent a precise decimal number, doubles are the go-to.");
+    console.log("3. Char. Char's can be manipulated in interesting ways to display ascii characters and symbols.");
+}
+myDataTypes();
 
 
 
