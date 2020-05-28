@@ -25,9 +25,9 @@ problem1("");
 function problem2() {
 
     let myString = "Learning JavaScript is fun!";
-    myString = myString.split(" ");
-    myString[3] = "cool!";
-    myString = myString.join(" ");
+    myString = myString.split(" "); // split into different elements
+    myString[3] = "cool!"; // replace the last element
+    myString = myString.join(" "); // join them back together
 
     console.log(myString);
 }
@@ -42,7 +42,7 @@ problem2();
 function problem3() {
 
     let numArray = [1,2,3,4,5];
-    let newArray = numArray.map(x => Math.pow(x,2));
+    let newArray = numArray.map(x => Math.pow(x,2)); // iterate thru the array, do pow operation on each element, then copy the new value to the new array
     console.log(newArray);
 }
 problem3();
@@ -56,7 +56,7 @@ problem3();
 function problem4() {
 
     let numArray = [1,3,5,7,9,1,3,5];
-    let newArray = numArray.filter(x => {if(x>3) return x;});
+    let newArray = numArray.filter(x => {if(x>3) return x;}); // filter the array, checking each element if it's greater than 3, if it is, return it to a new array
     console.log(newArray);
 }
 problem4();
@@ -70,7 +70,7 @@ problem4();
 function problem5() {
 
     let numArray = [2,4,6,8,10];
-    let sum = numArray.reduce(reducer = (sum, currentValue) => sum + currentValue);
+    let sum = numArray.reduce(reducer = (sum, currentValue) => sum + currentValue); // reduce the array by adding the current value to sum
     console.log(sum);
 }
 problem5();
@@ -89,18 +89,18 @@ function problem6(DNA) {
 
     console.log(habArray);
 
-     let complimentaryDNA = habArray.map(x => {
+     let complimentaryDNA = habArray.map(x => { // map the habArray to complimentaryDNA array
         switch(x) {
             case "C":
-                return "G";
+                return "G"; // return G to the new array if the current element is C
             case "G":
-                return "C";
+                return "C"; // return C to the new array if the current element is G
             case "A":
-                return "T";
+                return "T"; // return T to the new array if the current element is A
             case "T":
-                return "A";
+                return "A"; // return A to the new array if the current element is T
             case "N":
-                return "N";
+                return "N"; // return N to the new array if the current element is N (i actually looked up a table of Nucleic acid notation to find that N maps to N; N is a Nucleotide; https://en.wikipedia.org/wiki/Nucleic_acid_sequence#Notation)
             default:
                 return;
                 break;
@@ -124,41 +124,42 @@ const numbers = [2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23
 
 function maxNumber(numbers) {
     
-    let step1Array = numbers.map(x => {
+    let step1Array = numbers.map(x => { // map the numbers in the original array to a new array, which will hold the first version of parsed elements
         switch(x) {
-            case "one":
+            case "one": // if "one" is encountered, map it to 1
                 return 1;
-            case "two":
+            case "two": // if "two" is encountered, map it to 2
                 return 2;
-            case "three":
+            case "three": // if "three" is encountered, map it to 3
                 return 3;
-            case true:
+            case true: // if true is found, map it to nothing
                 return "";
-            case isNaN(Number(x)):
+            case isNaN(Number(x)): // if the current element is Not a Number (NaN), map it to nothing
                 return "";
-            default:
-                return Number(x);
+            default: // if none of the above conditions are valid for the current element, it must be a number
+                return Number(x); // map the number to the new array
         }
     });
 
-    let step2Array = [];
-    for(var i=0; i<step1Array.length; i++) {
+    let step2Array = []; // create another new array for 2nd version of parsing
+    for(var i=0; i<step1Array.length; i++) { // iterate thru the 1st version array
         let temp = 0;
-        if(isNaN(step1Array[i]) || step1Array[i] == ""){
+        if(isNaN(step1Array[i]) || step1Array[i] == ""){ // do nothing if the current element is Not a Number or is set to ""
         }
         else {
-            step2Array.push(step1Array[i]);
+            step2Array.push(step1Array[i]); // otherwise, the element is a number, therefore push it to 2nd version array
         }  
     }
 
-    console.log(Math.max(...step2Array));
+    console.log(Math.max(...step2Array)); // log the max of the 2nd version array
 }
 maxNumber(numbers);
 
 // 7.b -Write a function that sorts the given numbers array.  Allow the function to sort the array in descending order
 
 function sortNums(numbers,desc=false) {
-    let step1Array = numbers.map(x => {
+    // vvv - do the same logic as part a for parsing the array - vvv
+    let step1Array = numbers.map(x => { 
         switch(x) {
             case "one":
                 return 1;
@@ -183,9 +184,10 @@ function sortNums(numbers,desc=false) {
         else {
             step2Array.push(step1Array[i]);
         }  
-    }
+    } 
+    // ^^^ - do the same logic as part a for parsing the array - ^^^
 
-    step2Array.sort(function(a,b) {return a-b}).reverse();
+    step2Array.sort(function(a,b) {return a-b}).reverse(); // sort the array, then reverse the sort
 
     console.log(step2Array);
 };
@@ -200,11 +202,11 @@ sortNums(numbers);
 let myObject = {company : "TEKsystems"};
 const mapObj = new Map();
 mapObj.set(myObject,"object");
-mapObj.set(1,"int");
-mapObj.set(2.5,"float");
-mapObj.set('b',"char");
-mapObj.set(true,"boolean");
-mapObj.set("this is a string","string");
+mapObj.set(1,"int"); // adding an int datatype
+mapObj.set(2.5,"float"); // adding a float datatype
+mapObj.set('b',"char"); // adding a character datatype
+mapObj.set(true,"boolean"); // adding a boolean datatype
+mapObj.set("this is a string","string"); // adding a string datatype
 console.log(mapObj);
 
 console.log(mapObj.has({company : "TEKsystems"}));  
@@ -215,7 +217,9 @@ console.log("The above console log returns false because the object does not hav
 //loop through the mapObj and create a new array of only the data types, leaving out the example keys of the mapObj.  Use array methods to do this.  Example output : ['string',number','boolean',array','object']
 let theArray = [];
 mapObj.forEach(function(value, key) {
-    theArray.push(value);
+    if(value == "object") // i didnt add any object, so skip the example key, since it's an object
+        return;
+    theArray.push(value); // push the current value to the newly created array
 });
 console.log(theArray);
 
@@ -235,15 +239,15 @@ console.log(reverseOnes.reverse());
 //Problem 10:
 //create a function called performer(cb) that takes in a callback function and runs that callback function.  It should return the output of the callback function.
 
-function logTheConsole() {
+function logTheConsole() { // function to print a simple statement to the console
     console.log("This is in the callback function!");
 }
 
 function performer(cb) {
     
-    cb();
+    cb(); // invoke the function passed in as a parameter
 }
-performer(logTheConsole);
+performer(logTheConsole); // pass the function "logTheConsole" as a parameter to performer
 
 
 
