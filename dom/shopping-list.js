@@ -1,3 +1,10 @@
+var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = 'shopping-list.css';
+
+document.getElementsByTagName('HEAD')[0].appendChild(link);
+
 let myUL = document.getElementsByTagName("UL");
 let myInput = document.getElementById("item");
 let myButton = document.getElementsByTagName("Button");
