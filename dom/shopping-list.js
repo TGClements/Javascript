@@ -10,7 +10,6 @@ function buttonAdd() {
 
     let inputVal = myInput.value;
     myInput.value = "";
-    console.log(inputVal); // remove this later
 
     let newLI = document.createElement("li");
     let newSPAN = document.createElement("span");
@@ -32,4 +31,5 @@ function buttonAdd() {
 function buttonDelete() {
 
     this.parentNode.remove();
+    myInput.focus();
 }
